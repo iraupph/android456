@@ -1,7 +1,12 @@
 <resources>
 
     <style name="BuenasTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/BuenasActionBar</item>
     </style>
 
+    <!-- ActionBar styles -->
+    <style name="BuenasActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/gaucho_red</item>
+    </style>
 
 </resources>
