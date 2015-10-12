@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/BuenasTheme">
 
-        <activity android:name=".ChatsActivity">
+        <activity
+            android:name=".ui.activity.ChatsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
