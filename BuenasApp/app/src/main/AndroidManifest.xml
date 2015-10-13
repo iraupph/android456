@@ -11,12 +11,14 @@
         android:theme="@style/BuenasTheme">
 
         <activity
-            android:name=".ui.activity.ChatsActivity">
+            android:name=".ui.activity.ChatsActivity"
+            android:label="@string/chats">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

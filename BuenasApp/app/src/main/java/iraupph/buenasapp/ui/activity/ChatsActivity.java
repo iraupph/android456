@@ -13,16 +13,13 @@ import iraupph.buenasapp.model.adapter.ChatAdapter;
 
 public class ChatsActivity extends Activity {
 
-    private ListView mChatList;
-    private ChatAdapter mChatAdapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chats);
 
-        mChatList = (ListView) findViewById(R.id.chat_list);
-        mChatAdapter = new ChatAdapter(this, R.layout.view_chat, loadChats());
+        ListView mChatList = (ListView) findViewById(R.id.chat_list);
+        ChatAdapter mChatAdapter = new ChatAdapter(this, R.layout.view_chat, loadChats());
         mChatList.setAdapter(mChatAdapter);
     }
 

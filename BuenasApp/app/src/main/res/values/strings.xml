@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">BuenasApp</string>
+    <string name="chats">Conversas</string>
 </resources>
