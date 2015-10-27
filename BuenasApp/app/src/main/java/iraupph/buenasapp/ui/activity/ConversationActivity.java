@@ -4,6 +4,8 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -18,9 +20,6 @@ import iraupph.buenasapp.model.adapter.ConversationAdapter;
 
 public class ConversationActivity extends Activity {
 
-
-    private ListView mMessagesList;
-    private ImageButton mSend;
     private EditText mMessage;
     private ConversationAdapter mConversationAdapter;
 
@@ -29,23 +28,39 @@ public class ConversationActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_conversation);
 
-        mMessagesList = (ListView) findViewById(R.id.conv_messages);
-        mSend = (ImageButton) findViewById(R.id.conv_send);
         mMessage = (EditText) findViewById(R.id.conv_input);
 
-        int conversationId = getIntent().getIntExtra(ChatsActivity.CONVERSATION_EXTRA, -1);
+        ListView messagesList = (ListView) findViewById(R.id.conv_messages);
+        ImageButton send = (ImageButton) findViewById(R.id.conv_send);
 
         mConversationAdapter = new ConversationAdapter(this, R.layout.view_chat, new ArrayList<Message>());
-        mMessagesList.setAdapter(mConversationAdapter);
+        messagesList.setAdapter(mConversationAdapter);
 
+        // Definimos uma funcionalidade pro clique no "enviar"
+        send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String message = mMessage.getText().toString();
+                if (!TextUtils.isEmpty(message)) {
+                    // Se tem texto, envia e limpa o input
+                    mConversationAdapter.add(new Message(message, true));
+                    mMessage.setText("");
+                }
+            }
+        });
+
+        // Buscamos os dados passados da outra tela pra esta e rodamos a tarefa de "baixar" as mensagens
+        int conversationId = getIntent().getIntExtra(ChatsActivity.CONVERSATION_EXTRA, -1);
         new ConversationTask().execute(conversationId);
     }
 
+    // Parâmetros da tarefa são: classe da entrada, do item de progresso e do retorno
     class ConversationTask extends AsyncTask<Integer, Void, Conversation> {
 
         @Override
         protected Conversation doInBackground(Integer... params) {
-            int id = params[0];
+            // Rodando em uma thread paralela
+            int id = params[0]; // Entrada é um vetor, queremos só o primeiro item
             return new Conversation(id, "John Doe", R.drawable.johndoe, Arrays.asList(
                     new Message("Eaí, curtiu o Xis Moita?", true),
                     new Message("Tava bom pra cacete cara, ogrei!", false),
@@ -63,13 +78,14 @@ public class ConversationActivity extends Activity {
 
         @Override
         protected void onPostExecute(Conversation conversation) {
+            // Esta função executa no final da tarefa e na thread principal
             ActionBar actionBar = getActionBar();
             if (actionBar != null) {
                 actionBar.setDisplayHomeAsUpEnabled(true); // Mostra o botão de navegação UP
                 actionBar.setIcon(conversation.mImage); // Ícone do topo
                 actionBar.setTitle(conversation.mTitle); // Texto do topo
             }
-
+            // Recebemos os items, adiciona no adapter e ele é atualizado
             mConversationAdapter.addAll(conversation.mMessages);
         }
     }
