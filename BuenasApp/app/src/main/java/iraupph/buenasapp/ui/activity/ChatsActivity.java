@@ -3,6 +3,7 @@ package iraupph.buenasapp.ui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -22,6 +23,9 @@ public class ChatsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chats);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.chats_toolbar);
+        setSupportActionBar(toolbar);
 
         final ListView chatList = (ListView) findViewById(R.id.chat_list);
         final ChatAdapter chatAdapter = new ChatAdapter(this, R.layout.view_chat, loadChats());

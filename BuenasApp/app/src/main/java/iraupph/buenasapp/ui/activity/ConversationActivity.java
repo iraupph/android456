@@ -1,9 +1,9 @@
 package iraupph.buenasapp.ui.activity;
 
-import android.app.ActionBar;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
@@ -28,10 +28,13 @@ public class ConversationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_conversation);
 
-        mMessage = (EditText) findViewById(R.id.conv_input);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.conversation_toolbar);
+        setSupportActionBar(toolbar);
+
+        mMessage = (EditText) findViewById(R.id.conversation_input);
 
         ListView messagesList = (ListView) findViewById(R.id.conv_messages);
-        ImageButton send = (ImageButton) findViewById(R.id.conv_send);
+        ImageButton send = (ImageButton) findViewById(R.id.conversation_send);
 
         mConversationAdapter = new ConversationAdapter(this, R.layout.view_chat, new ArrayList<Message>());
         messagesList.setAdapter(mConversationAdapter);
@@ -79,10 +82,9 @@ public class ConversationActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Conversation conversation) {
             // Esta função executa no final da tarefa e na thread principal
-            ActionBar actionBar = getActionBar();
+            android.support.v7.app.ActionBar actionBar = getSupportActionBar();
             if (actionBar != null) {
                 actionBar.setDisplayHomeAsUpEnabled(true); // Mostra o botão de navegação UP
-                actionBar.setIcon(conversation.mImage); // Ícone do topo
                 actionBar.setTitle(conversation.mTitle); // Texto do topo
             }
             // Recebemos os items, adiciona no adapter e ele é atualizado
