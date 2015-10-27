@@ -45,13 +45,6 @@ public class ConversationActivity extends Activity {
 
         @Override
         protected Conversation doInBackground(Integer... params) {
-            try {
-                // Delay fake no carregamento...
-                Thread.sleep(5000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
             int id = params[0];
             return new Conversation(id, "John Doe", R.drawable.johndoe, Arrays.asList(
                     new Message("Eaí, curtiu o Xis Moita?", true),
