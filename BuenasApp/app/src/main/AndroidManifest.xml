@@ -10,8 +10,7 @@
         android:theme="@style/BuenasTheme">
 
         <activity
-            android:name=".ui.activity.ChatsActivity"
-            android:label="@string/chats">
+            android:name=".ui.activity.ChatsActivity">
             <!-- Estes filtros indicam qual a primeira tela a ser mostrada na app -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

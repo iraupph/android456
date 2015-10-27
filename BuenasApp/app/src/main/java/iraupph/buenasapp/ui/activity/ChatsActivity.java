@@ -2,6 +2,7 @@ package iraupph.buenasapp.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -26,6 +27,13 @@ public class ChatsActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.chats_toolbar);
         setSupportActionBar(toolbar);
+
+        ActionBar supportActionBar = getSupportActionBar();
+        if (supportActionBar != null) {
+            // Tem que definir o título da tela aqui (ao invés de no manifesto)
+            // se não, por ser a tela principal, ele define no ícone também...
+            supportActionBar.setTitle(R.string.chats);
+        }
 
         final ListView chatList = (ListView) findViewById(R.id.chat_list);
         final ChatAdapter chatAdapter = new ChatAdapter(this, R.layout.view_chat, loadChats());
