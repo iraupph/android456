@@ -5,4 +5,9 @@
     <color name="gaucho_red">#da251d</color>
     <color name="gaucho_yellow_light">#80fff500</color>
     <color name="gaucho_yellow">#fff500</color>
+
+    <color name="red_700">#D32F2F</color>
+    <color name="red_900">#B71C1C</color>
+
+    <color name="green_a700">#00C853</color>
 </resources>

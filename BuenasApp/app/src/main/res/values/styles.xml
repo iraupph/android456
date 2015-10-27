@@ -1,12 +1,9 @@
 <resources>
 
-    <style name="BuenasTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-        <item name="android:actionBarStyle">@style/BuenasActionBar</item>
+    <style name="BuenasTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Documentação sobre cores: http://www.google.com.br/design/spec/style/color.html#color-ui-color-application -->
+        <item name="colorPrimary">@color/red_700</item>
+        <item name="colorPrimaryDark">@color/red_900</item>
+        <item name="colorAccent">@color/green_a700</item>
     </style>
-
-    <!-- ActionBar styles -->
-    <style name="BuenasActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">@color/gaucho_red</item>
-    </style>
-
 </resources>

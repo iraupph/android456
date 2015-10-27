@@ -1,8 +1,8 @@
 package iraupph.buenasapp.ui.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -14,7 +14,7 @@ import iraupph.buenasapp.R;
 import iraupph.buenasapp.model.Chat;
 import iraupph.buenasapp.model.adapter.ChatAdapter;
 
-public class ChatsActivity extends Activity {
+public class ChatsActivity extends AppCompatActivity {
 
     public static final String CONVERSATION_EXTRA = "CONVERSATION_EXTRA";
 

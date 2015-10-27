@@ -1,9 +1,9 @@
 package iraupph.buenasapp.ui.activity;
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
@@ -18,7 +18,7 @@ import iraupph.buenasapp.model.Conversation;
 import iraupph.buenasapp.model.Message;
 import iraupph.buenasapp.model.adapter.ConversationAdapter;
 
-public class ConversationActivity extends Activity {
+public class ConversationActivity extends AppCompatActivity {
 
     private EditText mMessage;
     private ConversationAdapter mConversationAdapter;

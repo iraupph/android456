@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 19
+    compileSdkVersion 22
     buildToolsVersion "22.0.0"
 
     defaultConfig {
         applicationId "iraupph.buenasapp"
         minSdkVersion 14
-        targetSdkVersion 19
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
     }
@@ -21,4 +21,6 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    // Biblioteca oficial de retro-compatibilidade do sistema (coisas novas são portadas pras antigas)
+    compile "com.android.support:appcompat-v7:22.2.0"
 }
