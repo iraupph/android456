@@ -19,11 +19,9 @@ public class ConversationAdapter extends ArrayAdapter<Message> {
     private static final int REMOVE_RULE = 0;
 
     private final LayoutInflater mInflater;
-    private List<Message> mMessages;
 
     public ConversationAdapter(Context context, int resource, List<Message> messages) {
         super(context, resource, messages);
-        this.mMessages = messages;
         this.mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
