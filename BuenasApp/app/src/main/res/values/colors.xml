@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="gaucho_green_light">#8000923f</color>
     <color name="gaucho_green">#00923f</color>
     <color name="gaucho_red">#da251d</color>
+    <color name="gaucho_yellow_light">#80fff500</color>
     <color name="gaucho_yellow">#fff500</color>
 </resources>

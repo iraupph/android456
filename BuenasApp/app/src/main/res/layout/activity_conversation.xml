@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ConversationActivity">
+
+    <RelativeLayout
+        android:id="@+id/conv_input_parent"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha=".1"
+            android:background="@android:color/black"/>
+
+        <ImageButton
+            android:id="@+id/conv_send"
+            style="@android:style/Widget.Holo.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@android:drawable/ic_menu_send"/>
+
+        <EditText
+            android:id="@+id/conv_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/conv_send"
+            android:layout_toStartOf="@id/conv_send"
+            android:gravity="start"
+            android:hint="@string/conversation_input_hint"
+            android:inputType="text"
+            android:textColor="@android:color/black"/>
+
+    </RelativeLayout>
+
+    <!-- Pra esconder a linha que divide os itens, usa @null -->
+    <!-- stackFromBottom e transcriptMode faz adicionar os itens de baixo pra cima -->
+    <ListView
+        android:id="@+id/conv_messages"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/conv_input_parent"
+        android:divider="@null"
+        android:stackFromBottom="true"
+        android:transcriptMode="alwaysScroll"/>
+
+</RelativeLayout>

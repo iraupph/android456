@@ -19,6 +19,15 @@
             </intent-filter>
         </activity>
 
+        <!-- Atributo e meta-data pra suportar navegação UP em ambas versões (mesmo assim o lint reclama) -->
+        <activity
+            android:name=".ui.activity.ConversationActivity"
+            android:parentActivityName=".ui.activity.ChatsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.activity.ChatsActivity" />
+        </activity>
+
     </application>
 
 </manifest>

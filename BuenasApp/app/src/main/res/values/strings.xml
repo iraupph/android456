@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">BuenasApp</string>
     <string name="chats">Conversas</string>
+    <string name="conversation_input_hint">Digite sua mensagem</string>
 </resources>
