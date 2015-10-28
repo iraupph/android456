@@ -23,7 +23,48 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
-        tools:listitem="@layout/view_chat">
+        tools:listitem="@layout/view_contact">
     </ListView>
+
+    <FrameLayout
+        android:id="@+id/contacts_permission_information"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="64dp"
+            android:layout_marginRight="32dp"
+            android:src="@drawable/ic_face"/>
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="96dp"
+            android:layout_marginLeft="64dp"
+            android:src="@drawable/ic_question_bubble"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginTop="32dp"
+            android:text="@string/permission_contacts"/>
+
+        <Button
+            android:id="@+id/contacts_permission_enable"
+            android:backgroundTint="@color/green_a700"
+            android:textColor="@android:color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="80dp"
+            android:text="@string/permission_enable"/>
+
+    </FrameLayout>
 
 </RelativeLayout>

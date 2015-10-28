@@ -18,4 +18,6 @@
         "seams, divides space, and indicates moving parts.\n\n"
     </string>
     <string name="transition_image">image_transition</string>
+    <string name="permission_contacts">Para ver seus contatos,\npermita o acesso aos \"Contatos\"</string>
+    <string name="permission_enable">Configurações</string>
 </resources>
