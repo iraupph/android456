@@ -1,5 +1,6 @@
 package iraupph.buenasapp.ui.activity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -7,8 +8,11 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.transition.Slide;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 
 import java.util.HashMap;
@@ -48,6 +52,16 @@ public class DetailActivity extends AppCompatActivity {
         ImageView image = (ImageView) findViewById(R.id.detail_image);
         image.setImageResource(contact.mImage);
         toolBarLayout.setTitle(contact.mTitle);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            // Pros elementos compartilhados não ficarem por cima de todos os outros (causa uns efeitos toscos)
+            window.setSharedElementsUseOverlay(false);
+            // Animação de entrada do FAB
+            window.setEnterTransition(new Slide(Gravity.RIGHT).addTarget(fab).setStartDelay(500));
+            // Se não definir a animação de volta, ele executa a mesma de entrada ao contrário
+            window.setReturnTransition(new Slide(Gravity.RIGHT).addTarget(fab).setStartDelay(0));
+        }
     }
 
     private Contact loadContact(long id) {
