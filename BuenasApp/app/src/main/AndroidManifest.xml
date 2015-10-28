@@ -27,6 +27,15 @@
                 android:value=".ui.activity.ChatsActivity" />
         </activity>
 
+        <activity
+            android:name=".ui.activity.ContactsActivity"
+            android:parentActivityName=".ui.activity.ChatsActivity"
+            android:label="@string/action_contacts">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.activity.ChatsActivity" />
+        </activity>
+
     </application>
 
 </manifest>

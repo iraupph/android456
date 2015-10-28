@@ -11,7 +11,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.Arrays;
 import java.util.List;
@@ -65,6 +64,7 @@ public class ChatsActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.menu_contacts) {
+            startActivity(new Intent(getApplicationContext(), ContactsActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }
