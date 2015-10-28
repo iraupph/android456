@@ -1,6 +1,8 @@
 package iraupph.buenasapp.ui.activity;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -18,6 +20,7 @@ import iraupph.buenasapp.model.adapter.ContactAdapter;
 public class ContactsActivity extends AppCompatActivity {
 
     public static final String DETAIL_EXTRA = "DETAIL_EXTRA";
+    private static final int CONTACT_TRANSITION = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +43,14 @@ public class ContactsActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent conversationIntent = new Intent(getApplicationContext(), DetailActivity.class);
                 conversationIntent.putExtra(DETAIL_EXTRA, contactAdapter.getItem(position).mId);
-                startActivity(conversationIntent);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    // Pra fazer a transição de elementos compartilhados, passa a atividade de destino,
+                    // a view que é compartilhada e a string que identifica a transição
+                    startActivityForResult(conversationIntent, CONTACT_TRANSITION,
+                            ActivityOptions.makeSceneTransitionAnimation(ContactsActivity.this, view.findViewById(R.id.contact_image), getString(R.string.transition_image)).toBundle());
+                } else {
+                    startActivity(conversationIntent);
+                }
             }
         });
     }

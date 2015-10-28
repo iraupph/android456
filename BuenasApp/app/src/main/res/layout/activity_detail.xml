@@ -23,11 +23,13 @@
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
+            <!-- Elementos compartilhados precisam ter o nome da transição -->
             <ImageView
                 android:id="@+id/detail_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
+                android:transitionName="@string/transition_image"
                 app:layout_collapseMode="parallax"
                 app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
                 tools:src="@drawable/eu"/>

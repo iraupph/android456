@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -37,6 +38,7 @@ public class DetailActivity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
+            actionBar.setDisplayShowHomeEnabled(true);
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
@@ -54,5 +56,17 @@ public class DetailActivity extends AppCompatActivity {
         contactMap.put(2L, new Contact(2, R.drawable.johndoe, "John Doe"));
         contactMap.put(1L, new Contact(1, R.drawable.mom, "Mamãe"));
         return contactMap.get(id);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        final int itemId = item.getItemId();
+        if (itemId == android.R.id.home) {
+            // Hack pra não perder a transição de volta
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

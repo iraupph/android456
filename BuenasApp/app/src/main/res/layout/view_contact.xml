@@ -6,6 +6,7 @@
     android:layout_height="72dp"
     android:orientation="horizontal">
 
+    <!-- Elementos compartilhados precisam ter o nome da transição -->
     <ImageView
         android:id="@+id/contact_image"
         android:layout_width="72dp"
@@ -15,6 +16,7 @@
         android:paddingRight="8dp"
         android:paddingTop="8dp"
         android:scaleType="centerCrop"
+        android:transitionName="@string/transition_image"
         tools:src="@drawable/eu"/>
 
     <RelativeLayout
