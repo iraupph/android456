@@ -1,41 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    package="iraupph.buenasapp"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="iraupph.buenasapp" >
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/BuenasTheme">
+        android:theme="@style/BuenasTheme" >
+        <activity android:name=".ui.activity.ChatsActivity" >
 
-        <activity
-            android:name=".ui.activity.ChatsActivity">
             <!-- Estes filtros indicam qual a primeira tela a ser mostrada na app -->
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <!-- Atributo e meta-data pra suportar navegação UP em ambas versões (mesmo assim o lint reclama) -->
         <activity
             android:name=".ui.activity.ConversationActivity"
-            android:parentActivityName=".ui.activity.ChatsActivity">
+            android:parentActivityName=".ui.activity.ChatsActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.activity.ChatsActivity" />
         </activity>
-
         <activity
             android:name=".ui.activity.ContactsActivity"
-            android:parentActivityName=".ui.activity.ChatsActivity"
-            android:label="@string/action_contacts">
+            android:label="@string/action_contacts"
+            android:parentActivityName=".ui.activity.ChatsActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.activity.ChatsActivity" />
         </activity>
-
+        <activity
+            android:name=".ui.activity.DetailActivity"
+            android:parentActivityName=".ui.activity.ContactsActivity"
+            android:theme="@style/BuenasTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="iraupph.buenasapp.ui.activity.ContactsActivity" />
+        </activity>
     </application>
 
 </manifest>

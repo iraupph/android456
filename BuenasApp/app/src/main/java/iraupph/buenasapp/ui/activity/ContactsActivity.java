@@ -1,5 +1,6 @@
 package iraupph.buenasapp.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -16,7 +17,7 @@ import iraupph.buenasapp.model.adapter.ContactAdapter;
 
 public class ContactsActivity extends AppCompatActivity {
 
-//    public static final String CONVERSATION_EXTRA = "CONVERSATION_EXTRA";
+    public static final String DETAIL_EXTRA = "DETAIL_EXTRA";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,18 +30,17 @@ public class ContactsActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
-        
-        final ListView chatList = (ListView) findViewById(R.id.contact_list);
-        final ContactAdapter chatAdapter = new ContactAdapter(this, R.layout.view_contact, loadContacts());
-        chatList.setAdapter(chatAdapter);
 
-        chatList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        final ListView contactList = (ListView) findViewById(R.id.contact_list);
+        final ContactAdapter contactAdapter = new ContactAdapter(this, R.layout.view_contact, loadContacts());
+        contactList.setAdapter(contactAdapter);
+
+        contactList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Intent conversationIntent = new Intent(getApplicationContext(), ConversationActivity.class);
-                // Adicionando dados pra serem usados na outra activity
-//                conversationIntent.putExtra(CONVERSATION_EXTRA, chatAdapter.getItem(position).mId);
-//                startActivity(conversationIntent);
+                Intent conversationIntent = new Intent(getApplicationContext(), DetailActivity.class);
+                conversationIntent.putExtra(DETAIL_EXTRA, contactAdapter.getItem(position).mId);
+                startActivity(conversationIntent);
             }
         });
     }

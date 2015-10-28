@@ -21,7 +21,7 @@ import iraupph.buenasapp.model.adapter.ChatAdapter;
 
 public class ChatsActivity extends AppCompatActivity {
 
-    public static final String CONVERSATION_EXTRA = "CONVERSATION_EXTRA";
+    public static final String CONVERSATION_EXTRA = "DETAIL_EXTRA";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
